@@ -1,4 +1,3 @@
-require 'pry'
 class OrderController < LoggedInController
   def index
     @restaurants = Restaurant.all
@@ -21,7 +20,6 @@ class OrderController < LoggedInController
   def create
     find_restaurant
     find_meal
-    binding.pry
     @order = Order.new(:end_date => Time.new + params[:minutes_remaining].to_i.minutes, :restaurant => @restaurant)
     @order.dish_orders.build(:user => current_user, :meal => @meal)
     respond_to do |format|
