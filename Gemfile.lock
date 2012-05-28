@@ -176,6 +176,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   coffee-rails (~> 3.2.1)
+  devise
   jquery-rails
   pg
   rails (= 3.2.3)
