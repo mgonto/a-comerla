@@ -31,8 +31,6 @@ group :test do
 end
 
 gem 'twitter-bootstrap-rails'
-gem 'activeadmin'
-
 
 gem 'jquery-rails'
 
