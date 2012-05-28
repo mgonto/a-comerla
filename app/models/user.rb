@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :authentication_token
 
-  has_many: dishorders
+  has_many :dishorders
 
   
   def self.find_for_googleapps_oauth(access_token, signed_in_resource=nil)
