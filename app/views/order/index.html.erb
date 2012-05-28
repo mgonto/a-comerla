@@ -1,0 +1,8 @@
+<ul>
+  <% @restaurants.each do |r| %>
+    <li>
+      <h1><%= r.name %></h1>
+      <p><%= link_to 'Crea tu pedido', new_order_path(r.id) %></p>
+    </li>
+  <% end %>
+</ul>

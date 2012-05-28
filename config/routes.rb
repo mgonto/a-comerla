@@ -7,7 +7,10 @@ AComerla::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  root :to => "home#index"
+  root :to => "order#index"
+  match '/order/restaurant/:restaurant_id/new' => "order#new", :via => :get, :as => :new_order
+  match '/order/restaurant/:restaurant_id/meals/:meal_id/finalize' => "order#finalize", :via => :get, :as => :finalize_order
+  match '/order/restaurant/:restaurant_id/meals/:meal_id/create' => "order#create", :via => :post, :as => :create_order
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

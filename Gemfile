@@ -30,6 +30,8 @@ group :development, :test do
   gem 'pry'
 end
 
+gem 'date_validator'
+
 group :test do
   gem 'sqlite3'
 end

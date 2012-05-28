@@ -1,4 +1,4 @@
-class RestaurantsController < ApplicationController
+class RestaurantsController < LoggedInController
   # GET /restaurants
   # GET /restaurants.json
   def index

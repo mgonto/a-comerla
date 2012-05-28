@@ -1,0 +1,10 @@
+<h1>Nueva orden para <%= @restaurant.name %></h1>
+<p>Elegi tu plato</p>
+<ul>
+  <% @restaurant.meals.each do |m| %>
+    <li>
+      <h2><%= m.name %></h2>
+      <p><%= link_to 'Crear pedido', finalize_order_path(@restaurant.id, m.id) %></p>
+    </li>
+  <% end %>
+</ul>

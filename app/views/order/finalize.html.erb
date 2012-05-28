@@ -1,0 +1,23 @@
+<h1>Finalizar orden para <%= @restaurant.name%> con el plato <%= @meal.name %></h1>
+
+<%= form_for(@order, :url => create_order_path) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label for="minutes_remaining">Remaining time</label><br />
+    <input type="number" min="1" max="3600" id = "minutes_remaining" name ="minutes_remaining"/>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
