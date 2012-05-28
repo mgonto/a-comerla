@@ -32,4 +32,23 @@ ActiveRecord::Schema.define(:version => 20120528170826) do
     t.datetime "updated_at", :null => false
   end
 
+ActiveRecord::Schema.define(:version => 20120528160620) do
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                :default => "", :null => false
+    t.string   "first_name",                           :null => false
+    t.string   "last_name",                            :null => false
+    t.integer  "sign_in_count",        :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
 end

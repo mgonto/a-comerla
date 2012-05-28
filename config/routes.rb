@@ -2,9 +2,12 @@ AComerla::Application.routes.draw do
   resources :meals
 
   resources :restaurants
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
+
+  root :to => "home#index"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

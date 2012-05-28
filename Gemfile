@@ -22,8 +22,12 @@ end
 #Databases
 gem 'pg'
 
+gem 'thin'
+gem 'omniauth-openid'
+gem 'omniauth-google-apps'
 group :development, :test do
   gem 'rspec-rails'
+  gem 'pry'
 end
 
 group :test do
