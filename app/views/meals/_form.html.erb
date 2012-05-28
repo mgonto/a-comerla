@@ -27,6 +27,6 @@
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                meals_path, :class => 'btn' %>
+                if @meal.restaurant.nil? then meals_path else restaurant_path(@meal.restaurant) end, :class => 'btn' %>
   </div>
 <% end %>

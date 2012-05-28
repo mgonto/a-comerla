@@ -21,17 +21,6 @@ class MealsController < LoggedInController
     end
   end
 
-  # GET /meals/new
-  # GET /meals/new.json
-  def new
-    @meal = Meal.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @meal }
-    end
-  end
-
   # GET /meals/1/edit
   def edit
     @meal = Meal.find(params[:id])
@@ -44,7 +33,7 @@ class MealsController < LoggedInController
 
     respond_to do |format|
       if @meal.save
-        format.html { redirect_to @meal, notice: 'Meal was successfully created.' }
+        format.html { redirect_to restaurant_path(@meal.restaurant), notice: 'Meal was successfully created.' }
         format.json { render json: @meal, status: :created, location: @meal }
       else
         format.html { render action: "new" }
@@ -78,6 +67,15 @@ class MealsController < LoggedInController
     respond_to do |format|
       format.html { redirect_to meals_url }
       format.json { head :no_content }
+    end
+  end
+
+  def new
+    @meal = Meal.new
+    @meal.restaurant = Restaurant.find(params[:restaurant_id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @meal }
     end
   end
 end

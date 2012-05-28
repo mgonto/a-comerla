@@ -1,7 +1,9 @@
 AComerla::Application.routes.draw do
-  resources :meals
+  resources :meals, :except => :new
+  resources :restaurants do
+    resources :meals, :only => :new, :on => :member
+  end
 
-  resources :restaurants
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   # The priority is based upon order of creation:
