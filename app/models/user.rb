@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :authentication_token
 
+  has_many: dishorders
+
   
   def self.find_for_googleapps_oauth(access_token, signed_in_resource=nil)
     data = access_token['info']
@@ -18,13 +20,4 @@ class User < ActiveRecord::Base
       User.create!(:email => data['email'], :first_name => data['first_name'], :last_name => data['last_name'])
     end
   end
-
-  # def self.new_with_session(params, session)
-  #   super.tap do |user|
-  #     if data = session['devise.googleapps_data'] && session['devise.googleapps_data']['user_info']
-  #       user.email = data['email']
-  #     end
-  #   end
-  # end
-  # attr_accessible :title, :body
 end
